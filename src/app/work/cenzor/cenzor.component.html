@@ -1,0 +1,24 @@
+<div class="mainWrapper">
+    <div class="wrapper">
+      <div class="wordsBlockShow">
+        <p class="listTitle">Bad words:</p>
+        <p class="badWords">
+          <span *ngFor="let word of arrWords">
+            {{word}}
+          </span>
+        </p>
+      </div>
+      <form class="wordsBlockInput">
+        <input [style.border]="borderStyle" [(ngModel)]="word" class="form-control wordsInput" type="text" name="word"
+          [placeholder]="placeholder">
+        <input (click)="addWords()" class="btn btn-warning add" type="button" value="Add">
+        <input (click)="deleteWords()" class="btn btn-danger reset" type="button" value="Reset">
+      </form>
+      <form name="areaBlock">
+        <textarea name="area" [style.border]="areaBorderStyle" [(ngModel)]="area" [placeholder]="areaPlaceholder"
+          class="form-control area"></textarea>
+        <input (click)="cenzor()" class="btn btn-success cenzor" type="button" value="Cenzor">
+      </form>
+    </div>
+  </div>
+  

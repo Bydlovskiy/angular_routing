@@ -1,0 +1,25 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item works-title">
+    <button class="nav-link" type="button">Last works >>>>></button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" type="button" [routerLink]="[ '/work/cenzor/' ]">Cenzor</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" type="button" [routerLink]="[ '/work/user-list']">User list</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" type="button" [routerLink]="[ '/work/task-list' ]">Task list</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-bs-toggle="tab" type="button" [routerLink]="[ '/work/phone-book' ]">Phone
+      book</button>
+  </li>
+  <li class="nav-item back-button">
+    <button class="nav-link" data-bs-toggle="tab" type="button" [style.color]="'red'" [routerLink]="[ '']">Back to
+      home</button>
+  </li>
+</ul>
+<div class="task-container">
+  <router-outlet></router-outlet>
+</div>

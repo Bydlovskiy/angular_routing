@@ -1,0 +1,49 @@
+.addContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .btn-success {
+    width: 17%
+  }
+  
+  .inputAdd {
+    width: 82%;
+  }
+  
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+  }
+  
+  .block1 {
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .block1:after {
+    content: '';
+    position: absolute;
+    left: 86px;
+    bottom: -10px;
+    border: 10px solid transparent;
+    border-top: 10px solid black;
+  }
+  
+  .block2 {
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .block2:after {
+    content: '';
+    position: absolute;
+    left: 86px;
+    bottom: 15px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid black;
+  }
+  

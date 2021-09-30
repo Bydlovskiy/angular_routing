@@ -1,0 +1,74 @@
+<div class="container">
+    <h1 [style.color]="'red'">My phone book</h1>
+    <hr>
+    <div class="addContainer">
+      <input [(ngModel)]="search" type="text" class="form-control inputAdd" placeholder="search text goes here">
+      <input type="button" value="add phone" class="btn btn-success" data-bs-toggle="modal"
+        data-bs-target="#addPhoneModal">
+    </div>
+    <div class="modal fade" id="addPhoneModal" tabindex="-1" aria-labelledby="addPhoneModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addPhoneModalLabel">{{ isEdit ? 'Change contact' : 'Add contact' }}</h5>
+            <button (click)="clearInputs()" type="button" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input [(ngModel)]="firstName" type="text" class="form-control inputsAddForm"
+              placeholder="First name goes here">
+            <input [(ngModel)]="lastName" type="text" class="form-control inputsAddForm"
+              placeholder="Last name goes here">
+            <input [(ngModel)]="phoneNumber" type="text" class="form-control inputsAddForm" placeholder="Phone number goes here min 10 numbers
+                ">
+          </div>
+          <div class="modal-footer">
+            <button (click)="isEdit ? saveContact() : createContactInfo()" [disabled]="!disabled()" type="button"
+              class="btn btn-primary" data-bs-dismiss="modal">{{ isEdit ? 'Change' : 'Add' }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <th (click)="sortTo('first','firstReverse');">First name
+            <div *ngIf="firstNameDirection">
+              <div *ngIf="!down" class="block1"></div>
+              <div *ngIf="down" class="block2"></div>
+            </div>
+          </th>
+          <th (click)="sortTo('last','lastReverse')">Last name
+            <div *ngIf="lastNameDirection">
+              <div *ngIf="!down" class="block1"></div>
+              <div *ngIf="down" class="block2"></div>
+            </div>
+          </th>
+          <th (click)="sortTo('number','numberReverse')">number
+            <div *ngIf="phoneNumberDirection">
+              <div *ngIf="!down" class="block1"></div>
+              <div *ngIf="down" class="block2"></div>
+            </div>
+          </th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts | search:search | sort:howsort.whatSort ;let i = index">
+          <td>{{ contact.firstName | titlecase }}</td>
+          <td>{{ contact.lastName | titlecase }}</td>
+          <td>{{ contact.phoneNumber }}</td>
+          <td>
+            <button (click)="editContact(contact,i)" data-bs-toggle="modal" data-bs-target="#addPhoneModal"
+              class="btn btn-warning" type="button">Edit</button>
+          </td>
+          <td>
+            <button (click)="deleteContact(i)" class="btn btn-danger" type="button">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

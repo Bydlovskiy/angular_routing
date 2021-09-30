@@ -1,0 +1,15 @@
+.addContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.btn-success{
+    width: 17% 
+}
+.inputAdd{
+    width: 82%;
+}
+.edit{
+    height: 40px;
+    display: flex;
+}
